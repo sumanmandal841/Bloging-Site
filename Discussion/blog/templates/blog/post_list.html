@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="centerstage">
+<p><b>Search for any keywords</b></p>
+<form method='GET' action=''>
+<input type='text' name='q' placeholder='Search posts' value='{{ request.GET.q}}'/>
+<input type='Submit' value='Search'/>
+</form>
+	<h3><b>POSTS</b></h3>
+    {% for post in post_list %}
+        <div class="post">
+
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <div class="date">
+                <p>Published on: {{ post.published_date|date:"D M Y"}} by {{post.author}}</p>
+            </div>
+            <a href="{% url 'post_detail' pk=post.pk %}"><b>Comments: {{ post.approve_comments.count }}</b></a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %} 

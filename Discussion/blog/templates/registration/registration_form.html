@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+
+ {% block content %}
+ <div class="container-fluid" style="height:550px;">
+	<div class="row">
+		<div class="col-md-8">
+			<h3>Register for an Account</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+			<form role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{form.as_p}}
+						<input type="hidden" name="next" value="{{ next }}" />
+                        <!-- {% include 'registration/form_template.html' %} -->
+                    <button type="submit" class="btn btn-success">Submit</button><br>
+					
+					Already have an account? <a href="{% url 'login' %}">Click here</a> to log in.
+            </form>
+		</div>
+		<div class="col-md-2">
+			 
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+	
+</div>
+{% endblock %}

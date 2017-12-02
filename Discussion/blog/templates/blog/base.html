@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+	
+        <title>SILICON DISCUSSION FORUM</title>
+		<link rel="stylesheet" href="{% static 'css/extcc.css' %}">
+		<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="assets/css/demo.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/Footer-with-button-logo.css">
+		<!-- Latest compiled and minified CSS --> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="assets/css/ekko-lightbox.min.css">
+<link rel="stylesheet" href="assets/css/custom.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        
+	<head>
+<body>
+
+
+<div class="container-fluid" >
+	<div class="row">
+		<div class="col-md-12" style="height:550px;" >
+			<div class="row" style="background-color: rgb(167, 167, 253); height:70px;"">
+				<div class="col-md-4 ">
+					<a href="{% url 'post_list' %}"><h2><b>Silicon Forum</b></h2></a>
+				</div>
+				
+				<div class="col-md-6" align="right">
+	
+					{% if user.is_authenticated %}
+						
+							<h3><a href="{% url 'post_new' %}" ><b>New Post</b></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+						
+
+						
+							<a href="{% url 'post_draft_list' %}"><b>Drafts</b></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+						
+						
+							<a href="{% url 'logout' %}" ><b>Log out</b></a>&nbsp&nbsp&nbsp&nbsp&nbsp
+						
+
+						
+							<a ><b>Welcome: {{ user.username }}</b></a></h3></b>&nbsp&nbsp&nbsp&nbsp&nbsp
+						
+					{% else %}
+						<a href="{% url 'login' %}" ><h2><b>Login</b></h2></span></a>
+				</div>
+				<div class="col-md-2" align="right">
+							<a href="{% url 'registration_form' %}" ><h2><b>Register</b></h2></span></a>
+				</div>	
+						
+				{% endif %}
+
+				
+			</div>
+		
+			<div class="container-fluid" >
+				
+				<div class="col-md-12">
+					
+					<h3>{# The actual blog posts#}</h3>
+					<p>
+						{% block content %}
+						{% endblock %}
+					</p>
+			 
+				</div>
+			
+				</div>
+			
+			{# SCRIPTS#}
+			<script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
+			
+	
+	<div class="row"  >
+		<div class="col-md-12 ftr"  style="background-color: powderblue;">
+			<footer id="myFooter"  >
+        <div class="container" >
+            <div class="row">
+                <div class="col-sm-3 myCols">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="{% url 'post_list' %}">Home</a></li>
+                        <li><a href="{% url 'registration_form' %}" >Sign up</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>About us</h5>
+					
+                    <ul>
+                        <li><a href="{% url 'about'%}">Company Information</a></li>
+                        <li><a href="{% url 'about'%}">Contact us</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="{% url 'about'%}">FAQ</a></li>
+                        <li><a href="{% url 'about'%}">Help desk</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="{% url 'about'%}">Terms of Service</a></li>
+                        
+                        <li><a href="{% url 'about'%}">Privacy Policy</a></li>
+                    </ul>
+                </div>
+				
+            </div>
+        </div>
+       
+        <div align="center">
+					
+					<b>Copyright &copy 2014 - All Rights Reserved - Silicon Hills, Patia, Bhubaneswar, Orissa</b>
+				</div>
+		</footer>
+   
+		</div>
+	</div>
+</div>
+</div>
+
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>
+
+

@@ -1,0 +1,78 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block content %} 
+
+		<div class="container-fluid " style="height:550px;" >
+	<div class="row">
+		<div class="col-md-6" style="max-height:100%" >
+			<div class="carousel slide" id="carousel-450537">
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0" data-target="#carousel-450537">
+					</li>
+					<li data-slide-to="1" data-target="#carousel-450537">
+					</li>
+					<li data-slide-to="2" data-target="#carousel-450537">
+					</li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="{% static "pic1.jpg" %}" alt="Picture of Silicon" />
+						<div class="carousel-caption">
+							<h4>
+								Achievements
+							</h4>
+							<p>
+								University topper is awarded by governer
+							</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="{% static "pic2.jpg" %}" alt="Picture of Silicon" />
+						<div class="carousel-caption">
+							<h4>
+								Cultural Events
+							</h4>
+							<p>
+								Cultural events is being inaugurated by Dean Academics
+							</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="{% static "pic3.jpg" %}" alt="Picture of Silicon" />
+						<div class="carousel-caption">
+							<h4>
+								Sports
+							</h4>
+							<p>
+								volleyball Inter College champions 2016
+							</p>
+						</div>
+					</div>
+				</div> <a class="left carousel-control" href="#carousel-450537" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-450537" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md-6">
+					
+				</div>
+				<div class="col-md-6">
+				<h1 style="color:blue;"><b>Silicon Discussion Forum</b></h1>
+					<h2>Please Login to continue: </h2>
+						{% if form.errors %}
+						<p>Your username and password didn't match.Please try again!</p>
+				{% endif %}
+					<form method="POST" action="{% url 'login' %}">
+					{% csrf_token %}
+					{{form.as_p}}
+				<input type="submit" class='btn btn-primary' value="Login" />
+				<input type="hidden" name="next" value="{{ next }}" />
+				</br></br>
+				
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>		
+{% endblock %}
